@@ -22,13 +22,19 @@
 
 import { useAuth } from "@clerk/clerk-expo";
 import { Redirect, Stack } from "expo-router";
+import { useAuthContext } from "@/contexts/AuthContext";
+
+
 
 export default function AuthRoutesLayout() {
+  const { dbUser, authReady } = useAuthContext();
   const { isSignedIn, isLoaded } = useAuth();
 
-  if (!isLoaded) return null;
+  const SignedIn = isSignedIn || dbUser; // consider user signed in if either Clerk or DB has user data, this will work if app is online or offline (cached user)
 
-  if (isSignedIn) {
+  // if (!isLoaded || !authReady) return null; 
+
+  if (SignedIn) {
     return <Redirect href="/(tabs)" />;
   }
 

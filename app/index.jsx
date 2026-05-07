@@ -60,44 +60,58 @@
 // });
 
 
-import React, { useEffect } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { router } from 'expo-router';
+// This file is the root of the auth group. It decides whether to show onboarding or auth screens based on AsyncStorage.
 
-const ONBOARDING_KEY = '@chub_onboarding_complete';
+// import React, { useEffect } from 'react';
+// import { View, ActivityIndicator, StyleSheet } from 'react-native';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+// import { router } from 'expo-router';
+
+// const ONBOARDING_KEY = '@chub_onboarding_complete';
+
+// export default function Index() {
+//   useEffect(() => {
+//     checkOnboarding();
+//   }, []);
+
+//   const checkOnboarding = async () => {
+//     try {
+//       const completed = await AsyncStorage.getItem(ONBOARDING_KEY);
+
+//       if (completed) {
+//         router.replace('/(auth)');
+//       } else {
+//         router.replace('/OnboardingScreen');
+//       }
+//     } catch (error) {
+//       router.replace('/(auth)');
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       <ActivityIndicator size="small" color="#38C864" />
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#000A04',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
+
+
+import React, { useEffect } from 'react';
+import { router } from 'expo-router';
 
 export default function Index() {
   useEffect(() => {
-    checkOnboarding();
+    router.replace('/SplashScreen');
   }, []);
 
-  const checkOnboarding = async () => {
-    try {
-      const completed = await AsyncStorage.getItem(ONBOARDING_KEY);
-
-      if (completed) {
-        router.replace('/(auth)');
-      } else {
-        router.replace('/OnboardingScreen');
-      }
-    } catch (error) {
-      router.replace('/(auth)');
-    }
-  };
-
-  return (
-    <View style={styles.container}>
-      <ActivityIndicator size="small" color="#38C864" />
-    </View>
-  );
+  return null;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000A04',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

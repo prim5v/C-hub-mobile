@@ -364,8 +364,8 @@ export default function ProfileScreen() {
               onPress={handleLogout}
             />
             <SettingsRow
-              icon={<Trash2 size={18} color={T.textRed} strokeWidth={2} />}
-              label="Delete Account"
+              icon={<Trash2 size={18} color={T.textMid} strokeWidth={2} />}
+              label="Delete my account and data"
               onPress={handleDelete}
               destructive
               showDivider={false}

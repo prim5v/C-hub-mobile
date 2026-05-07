@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "855505847115",
+    "project_id": "recipe-snap-ofjmv",
+    "storage_bucket": "recipe-snap-ofjmv.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855505847115:android:4772158f01de07dfc95ece",
+        "android_client_info": {
+          "package_name": "com.prim5vor.chub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV94WQPmCSwn_laRLlkecRn300M5uPXz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

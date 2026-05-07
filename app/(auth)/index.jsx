@@ -999,7 +999,7 @@ const resendOtp = async () => {
           <View style={styles.logoWrap}>
             <LogoIcon />
           </View>
-          <Text style={styles.brandName}>C-Hub</Text>
+          <Text style={styles.brandName}>Comrade Sasa</Text>
           <Text style={styles.taglineMain}>Find your perfect{'\n'}campus home</Text>
           <Text style={styles.taglineSub}> Smart. Fast. Reliable. Trusted.</Text>
         </Animated.View>
@@ -1028,6 +1028,7 @@ const resendOtp = async () => {
     setError(""); // clear error when typing
   }}
   placeholder="you@example.com"
+  placeholderTextColor={C.dark}
   style={styles.input}
 />
 
@@ -1047,6 +1048,7 @@ const resendOtp = async () => {
         value={password}
         onChangeText={setPassword}
         placeholder="******"
+        placeholderTextColor={C.dark}
         secureTextEntry={!showPwd}
         style={styles.input}
       />

@@ -2,17 +2,21 @@ import React from "react";
 import { useAuth } from "@clerk/clerk-expo";
 import { Redirect, Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { useAuthContext } from "@/contexts/AuthContext";
 
 import { C } from "../../lib/theme";
 
 const TabsLayout = () => {
+  const { dbUser, authReady } = useAuthContext();
   const { isSignedIn, isLoaded } = useAuth();
 
+  const SignedIn = isSignedIn || dbUser; // consider user signed in if either Clerk or DB has user data
+
   // ⛔ wait for Clerk to hydrate
-  if (!isLoaded) return null;
+  // if (!isLoaded || !authReady) return null;
 
   // ⛔ not signed in → go auth
-  if (!isSignedIn) {
+  if (!SignedIn) {
     return <Redirect href="/(auth)" />;
   }
 

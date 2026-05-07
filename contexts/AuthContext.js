@@ -208,6 +208,7 @@ export const AuthProvider = ({ children }) => {
   const { api } = useApi();
 
   const [dbUser, setDbUser] = useState(null);
+  const [authReady, setAuthReady] = useState(false);
   const [syncStatus, setSyncStatus] = useState("idle");
   const [error, setError] = useState(null);
   const [loadingCache, setLoadingCache] = useState(true);
@@ -221,6 +222,7 @@ export const AuthProvider = ({ children }) => {
 
       if (cached) {
         setDbUser(JSON.parse(cached));
+        
       }
     } catch (e) {
       Sentry.captureException(e, {
@@ -228,6 +230,7 @@ export const AuthProvider = ({ children }) => {
       });
     } finally {
       setLoadingCache(false);
+      setAuthReady(true);
     }
   };
 
@@ -370,6 +373,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         user,
         dbUser,
+        authReady,
         syncStatus,
         error,
         loadingCache,
