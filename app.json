@@ -31,14 +31,6 @@
       "favicon": "./assets/images/icon.png"
     },
     "plugins": [
-      "expo-router",
-      [
-        "expo-splash-screen",
-          {
-            "backgroundColor": "#000000"
-          }
-      ],
-      "@clerk/expo",
       "expo-secure-store",
       "expo-web-browser"
     ],
